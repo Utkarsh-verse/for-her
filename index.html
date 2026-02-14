@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Heyy Sheryaaaa 🎀 </title>
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family: 'Segoe UI',sans-serif;
+    overflow:hidden;
+  }
+  .card{
+    text-align:center;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    animation:fadeIn 1.5s ease;
+  }
+  h1{color:#ff4d6d;margin-bottom:10px;}
+  #message{font-size:20px;min-height:60px;color:#444;}
+  button{
+    margin-top:20px;
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.3s;
+  }
+  #yes{background:#ff4d6d;color:white;}
+  #yes:hover{transform:scale(1.1);}
+  #no{background:#eee;position:absolute;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .heart{
+    position:absolute;
+    color:#ff4d6d;
+    font-size:20px;
+    animation:float 6s linear infinite;
+  }
+  @keyframes float{
+    from{transform:translateY(0) scale(1);opacity:1}
+    to{transform:translateY(-800px) scale(1.5);opacity:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Hey Gulaboo 🎀</h1>
+  <div id="message"></div>
+  <button id="yes"> Yesss, My Idiot Box🌷</button>
+  <button id="no">Nopeee, Huhh </button>
+</div>
+
+<script>
+const text="IK this isn't a fancy date...So, since I can’t steal you for a date tonight, in person.... Can I at least steal the title?....So tell me love, can I officially call you mine this Valentine’s? 💖";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("message").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,40);
+  }
+}
+type();
+
+// moving no button
+const no=document.getElementById('no');
+no.addEventListener('mouseover',()=>{
+  no.style.top=Math.random()*80+'%';
+  no.style.left=Math.random()*80+'%';
+});
+
+// yes click hearts
+const yes=document.getElementById('yes');
+yes.addEventListener('click',()=>{
+  document.body.innerHTML="<h1 style='color:white;text-align:center'>Aww,I Loveee youuhhh the mostttttttt 💟 Mwahhhhh !!!!! </h1>";
+  setInterval(createHeart,150);
+});
+
+function createHeart(){
+  const heart=document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML='❤️';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(Math.random()*20+20)+'px';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+</script>
+
+</body>
+</html>
