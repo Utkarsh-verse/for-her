@@ -96,5 +96,25 @@ function createHeart(){
 }
 </script>
 
+
+<audio id="bgm" loop>
+  <source src="PUT_YOUR_MP3_LINK_HERE" type="audio/mpeg">
+</audio>
+
+<script>
+
+const START_AT = 25; 
+window.addEventListener('click', () => {
+  const music = document.getElementById('bgm');
+  if (music) {
+    music.currentTime = START_AT;
+    music.play().catch(()=>{});
+  }
+}, { once: true });
+  if (music && music.paused) music.play().catch(()=>{});
+}, { once: true });
+</script>
+
 </body>
 </html>
+
